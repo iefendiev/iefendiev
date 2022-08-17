@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { IItem } from '../types'
+import { TagType, WorkHistoryItem } from '../types'
 
-type CardProps = {
-  item: IItem
+type Props = {
+  item: WorkHistoryItem
 }
 
-const Card: React.FC<CardProps> = ({ item }) => {
-  const { title, content, url = '', tags = [] } = item
+const Card: React.FC<Props> = ({ item }) => {
+  const { title, content, url = '', tags } = item.attributes
 
   return (
     <div className="flex flex-col gap-2 bg-white p-4 rounded-lg shadow-md group-hover:shadow-lg overflow-x-auto">
@@ -26,14 +26,14 @@ const Card: React.FC<CardProps> = ({ item }) => {
           </a>
         </p>
       )}
-      {tags.length && (
+      {tags?.data.length && (
         <div className="flex flex-wrap items-center gap-4 mt-2">
-          {tags.map((tag, index) => (
+          {tags.data.map((tag: TagType) => (
             <div
-              key={index}
+              key={tag.id}
               className="bg-gray-900 px-2 py-1 rounded-lg cursor-pointer"
             >
-              <p className="text-white">{tag}</p>
+              <p className="text-white">{tag.attributes.name}</p>
             </div>
           ))}
         </div>
