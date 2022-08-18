@@ -10,7 +10,7 @@ const Card: React.FC<Props> = ({ item }) => {
   const { title, content, url = '', tags } = item.attributes
 
   return (
-    <div className="flex flex-col gap-2 bg-white p-8 rounded-lg shadow-md group-hover:shadow-lg overflow-x-auto">
+    <div className="flex flex-col gap-2 bg-white p-8 rounded-lg shadow-md group-hover:shadow-lg overflow-x-auto border-2 border-white group-hover:border-primary">
       <h3 className="font-bold text-lg">{title}</h3>
       <p>{content}</p>
       {url && (
