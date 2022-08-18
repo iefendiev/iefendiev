@@ -14,7 +14,7 @@ const TimeLine: React.FC<TimeLineProps> = ({ content, className = '' }) => {
   return (
     <div
       className={clsx(
-        'flex flex-col gap-10 p-6 bg-gray-100 rounded-lg ruler',
+        'flex flex-col gap-10 p-8 bg-gray-100 rounded-lg ruler opacity-95',
         className
       )}
     >

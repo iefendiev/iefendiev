@@ -34,7 +34,7 @@ const Portfolio: NextPage<Props> = ({ data }) => {
         <div>
           {data.map((item: WorkHistoryItem) => (
             <div key={item.id} className="flex flex-col gap-1 mt-4 shadow-lg">
-              <h1 className="text-center text-lg text-primary">
+              <h1 className="text-center text-lg text-white">
                 {item.attributes.date}
               </h1>
               <Card item={item} />

@@ -19,7 +19,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, logo, text = '' }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-2 cursor-pointer"
+    className="flex justify-center items-center gap-2 cursor-pointer bg-white rounded-full p-1"
   >
     {logo}
     {text && <p className="hover:underline">{text}</p>}
@@ -48,7 +48,7 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({ className = '' }) => (
   <div
     className={clsx(
-      'flex items-center justify-between shadow-lg py-4 flex-wrap gap-4 md:flex-nowrap flex-col md:flex-row',
+      'flex items-center justify-between shadow-lg py-4 flex-wrap gap-4 md:flex-nowrap flex-col md:flex-row bg-opacity-25 bg-slate-800 hover:bg-opacity-50',
       className
     )}
   >

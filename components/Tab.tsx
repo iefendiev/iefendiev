@@ -23,7 +23,7 @@ const Tab: React.FC<Props> = ({ tab }) => {
         'px-2 py-1 rounded-md transition-all duration-500 hover:text-white hover:shadow-xl bg-primary whitespace-nowrap',
         isActive
           ? 'bg-primary text-white button-active-transition'
-          : 'bg-white text-primary border-[1px] border-primary button-transition'
+          : 'bg-white text-primary button-transition'
       )}
     >
       {tab.label}

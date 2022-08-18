@@ -17,7 +17,7 @@ type StackCardProps = {
 }
 
 const StackCard: React.FC<StackCardProps> = ({ data, title }) => (
-  <div className="bg-gray-100 p-4 rounded-lg md:w-2/6 h-fit">
+  <div className="bg-gray-100 p-8 rounded-lg md:w-2/6 h-fit opacity-95">
     <h2 className="text-xl font-semibold mb-1">{title}</h2>
     <ul>
       {data.map((item) => (
@@ -48,7 +48,7 @@ type Props = {
 }
 
 const TechStack: NextPage<Props> = ({ techData, stylingData, othersData }) => (
-  <AppLayout title="Tech Stack - Skills">
+  <AppLayout title="Things that I like to use">
     <div className="flex flex-col md:flex-row gap-4">
       <StackCard
         data={techData.attributes.tech_items.data}
