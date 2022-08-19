@@ -10,8 +10,11 @@ type Props = {
 }
 
 const Title = () => (
-  <div className="flex flex-col gap-2">
-    <h1 className="text-6xl text-white">İpek Efendiev</h1>
+  <div className="flex flex-col gap-8">
+    <h1 className="text-6xl text-white">
+      <span className="text-primary">[</span> İpek Efendiev{' '}
+      <span className="text-primary">]</span>
+    </h1>
     <p className="text-2xl">Frontend Web Developer</p>
   </div>
 )
