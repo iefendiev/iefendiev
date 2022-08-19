@@ -15,11 +15,13 @@ const Tab: React.FC<Props> = ({ tab }) => {
   const isActive = pathname === tab.href
 
   return (
-    <Link type="button" href={tab.href}>
+    <Link href={tab.href}>
       <a
         className={clsx(
-          'transition-all duration-300 hover:text-primary',
-          isActive ? 'text-primary underline underline-offset-8' : 'text-white'
+          'relative before:content-[""] before:absolute before:block before:w-full before:h-[1px] before:bottom-[-4px] before:left-0 before:hover:scale-x-100 before:scale-x-0 before:origin-top-left before:transition before:ease-in-out before:duration-300',
+          isActive
+            ? 'text-primary before:scale-x-100 before:bg-primary'
+            : 'text-white before:bg-white'
         )}
       >
         {tab.label}
