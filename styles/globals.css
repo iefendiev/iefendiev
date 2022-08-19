@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.button-transition {
-  background: linear-gradient(to left, #fff 50%, #ff1e008b 50%) right;
-  background-size: 200%;
-  transition: 0.5s ease-out;
-}
-
-.button-transition:hover {
-  background-position: left;
-}
-
 .ruler {
   position: relative;
   z-index: 0;

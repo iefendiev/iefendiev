@@ -1,6 +1,7 @@
 import React from 'react'
-import { useRouter } from 'next/router'
 import clsx from 'clsx'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type Props = {
   tab: {
@@ -10,24 +11,20 @@ type Props = {
 }
 
 const Tab: React.FC<Props> = ({ tab }) => {
-  const { push, pathname } = useRouter()
+  const { pathname } = useRouter()
   const isActive = pathname === tab.href
 
-  const handleClick = () => push(tab.href)
-
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className={clsx(
-        'px-2 py-1 rounded-md transition-all duration-500 hover:text-white hover:shadow-xl bg-primary whitespace-nowrap',
-        isActive
-          ? 'bg-primary text-white button-active-transition'
-          : 'bg-white text-primary button-transition'
-      )}
-    >
-      {tab.label}
-    </button>
+    <Link type="button" href={tab.href}>
+      <a
+        className={clsx(
+          'transition-all duration-300 hover:text-primary',
+          isActive ? 'text-primary underline underline-offset-8' : 'text-white'
+        )}
+      >
+        {tab.label}
+      </a>
+    </Link>
   )
 }
 

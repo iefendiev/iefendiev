@@ -48,7 +48,7 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = ({ className = '' }) => (
   <div
     className={clsx(
-      'flex items-center justify-between shadow-lg py-4 flex-wrap gap-4 md:flex-nowrap flex-col md:flex-row bg-opacity-25 bg-slate-800 hover:bg-opacity-50',
+      'flex items-center justify-between shadow-lg py-4 flex-wrap gap-4 md:flex-nowrap flex-col md:flex-row bg-opacity-50 bg-slate-800 hover:bg-opacity-75',
       className
     )}
   >
