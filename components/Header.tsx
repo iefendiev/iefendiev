@@ -19,7 +19,7 @@ const SocialLink: React.FC<SocialLinkProps> = ({ href, logo, text = '' }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex justify-center items-center gap-2 cursor-pointer bg-white rounded-full p-1"
+    className="flex justify-center items-center gap-2 cursor-pointer bg-white p-1 rounded-full"
   >
     {logo}
     {text && <p className="hover:underline">{text}</p>}
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ className = '' }) => (
           <Image
             src={LinkedInPNG}
             alt="ipek-efendiev-linkedin"
-            height={20}
+            height={24}
             width={24}
           />
         }
