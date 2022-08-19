@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       animation: {
         fadeIn: 'fadeIn 1s linear forwards',
-        slideBackground: 'slide 400s infinite',
+        slideBackground: 'slide 300s infinite',
       },
       keyframes: {
         fadeIn: {
