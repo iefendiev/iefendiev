@@ -21,6 +21,6 @@ export type WorkHistoryItem = {
     title: string
     url?: string
     tags?: { data: TagType[] }
-    sort: number
+    order: string
   }
 }
