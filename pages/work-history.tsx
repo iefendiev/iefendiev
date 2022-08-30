@@ -59,7 +59,7 @@ export async function getStaticProps() {
     props: {
       data: data.sort(
         (a: WorkHistoryItem, b: WorkHistoryItem) =>
-          Number(a.attributes.order) - Number(b.attributes.order)
+          Number(b.attributes.order) - Number(a.attributes.order)
       ),
     },
     // Next.js will attempt to re-generate the page:
