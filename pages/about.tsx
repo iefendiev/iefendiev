@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Image, { StaticImageData } from 'next/image'
+import clsx from 'clsx'
 
 import AppLayout from '../layouts/app.layout'
 import endpoints from '../constants/endpoints'
@@ -19,6 +20,9 @@ const Title = () => (
   </div>
 )
 
+const IMAGE_WIDTH = 600
+const IMAGE_HEIGHT = 400
+
 const About: NextPage<Props> = ({ content }) => (
   <AppLayout title={<Title />}>
     <div className="flex gap-20 flex-wrap w-full items-center">
@@ -26,11 +30,27 @@ const About: NextPage<Props> = ({ content }) => (
         className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95"
         dangerouslySetInnerHTML={{ __html: content }}
       />
-      <div className="relative after:absolute before:absolute hover:before:top-8 hover:after:top-6 hover:before:left-8 hover:after:left-6 before:top-6 before:left-6 transition-all duration-700 before:content-[''] before:h-[300px] before:w-[300px] before:border-2 before:rounded-md before:border-red-500 after:content-[''] after:h-[300px] after:w-[300px] after:border-2 after:rounded-md after:border-red-500 after:top-4 after:left-4 m-auto md:m-0">
+      <div
+        className={clsx(
+          "relative after:absolute before:absolute transition-all duration-700 before:content-[''] before:border-2 before:rounded-md before:border-red-500 after:content-[''] after:h-[300px] after:w-[300px] after:border-2 after:rounded-md after:border-red-500 m-auto md:m-0",
+          'before:w-[600px]',
+          'before:h-[400px]',
+          'after:w-[600px]',
+          'after:h-[400px]',
+          'before:top-[-10px]',
+          'before:left-[-10px]',
+          'after:top-3',
+          'after:left-3',
+          'hover:before:top-[-20px]',
+          'hover:before:left-[-20px]',
+          'hover:after:top-5',
+          'hover:after:left-5'
+        )}
+      >
         <Image
           src={IpekPP as StaticImageData}
-          width={300}
-          height={300}
+          width={IMAGE_WIDTH}
+          height={IMAGE_HEIGHT}
           alt="avatar-image"
           className="rounded-md z-10"
         />
@@ -47,7 +67,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      content: data[0].attributes.content,
+      content: data ? data[0].attributes.content : [],
     },
     revalidate: 3600,
   }
