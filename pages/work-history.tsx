@@ -52,7 +52,7 @@ export default Portfolio
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
-  const response = await fetch(endpoints['work-history'])
+  // const response = await fetch(endpoints['work-history'])
   // const { data } = await response.json()
 
   return {

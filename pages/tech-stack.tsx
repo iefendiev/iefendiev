@@ -75,13 +75,13 @@ const TechStack: NextPage<Props> = ({ techData, stylingData, othersData }) => (
 export default TechStack
 
 export async function getStaticProps() {
-  const res1 = await fetch(endpoints['tech-stack'])
+  // const res1 = await fetch(endpoints['tech-stack'])
   // const { data: techData } = await res1.json()
 
-  const res2 = await fetch(endpoints['styling'])
+  // const res2 = await fetch(endpoints['styling'])
   // const { data: stylingData } = await res2.json()
 
-  const res3 = await fetch(endpoints['others'])
+  // const res3 = await fetch(endpoints['others'])
   // const { data: othersData } = await res3.json()
 
   return {

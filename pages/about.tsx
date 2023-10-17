@@ -64,7 +64,7 @@ const About: NextPage<Props> = ({ content }) => (
 export default About
 
 export async function getStaticProps() {
-  const response = await fetch(endpoints.about)
+  // const response = await fetch(endpoints.about)
   // const { data } = await response.json()
 
   return {
