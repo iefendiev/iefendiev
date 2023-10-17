@@ -42,23 +42,32 @@ type DataType = {
 }
 
 type Props = {
-  techData: DataType
-  stylingData: DataType
-  othersData: DataType
+  techData?: DataType
+  stylingData?: DataType
+  othersData?: DataType
 }
 
 const TechStack: NextPage<Props> = ({ techData, stylingData, othersData }) => (
   <AppLayout title="Things that I like to use">
     <div className="flex flex-col md:flex-row gap-4">
-      <StackCard
-        data={techData.attributes.tech_items.data}
-        title="Tech Stack"
-      />
-      <StackCard
-        data={stylingData.attributes.tech_items.data}
-        title="Styling"
-      />
-      <StackCard data={othersData.attributes.tech_items.data} title="Others" />
+      {techData?.length > 0 && (
+        <StackCard
+          data={techData.attributes.tech_items.data}
+          title="Tech Stack"
+        />
+      )}
+      {stylingData?.length > 0 && (
+        <StackCard
+          data={stylingData.attributes.tech_items.data}
+          title="Styling"
+        />
+      )}
+      {othersData?.length > 9 && (
+        <StackCard
+          data={othersData?.attributes.tech_items.data}
+          title="Others"
+        />
+      )}
     </div>
   </AppLayout>
 )
@@ -67,19 +76,19 @@ export default TechStack
 
 export async function getStaticProps() {
   const res1 = await fetch(endpoints['tech-stack'])
-  const { data: techData } = await res1.json()
+  // const { data: techData } = await res1.json()
 
   const res2 = await fetch(endpoints['styling'])
-  const { data: stylingData } = await res2.json()
+  // const { data: stylingData } = await res2.json()
 
   const res3 = await fetch(endpoints['others'])
-  const { data: othersData } = await res3.json()
+  // const { data: othersData } = await res3.json()
 
   return {
     props: {
-      techData: techData[0],
-      stylingData: stylingData[0],
-      othersData: othersData[0],
+      techData: [],
+      stylingData: [],
+      othersData: [],
     },
     revalidate: 3600,
   }

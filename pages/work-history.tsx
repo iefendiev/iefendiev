@@ -53,14 +53,15 @@ export default Portfolio
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
   const response = await fetch(endpoints['work-history'])
-  const { data } = await response.json()
+  // const { data } = await response.json()
 
   return {
     props: {
-      data: data.sort(
-        (a: WorkHistoryItem, b: WorkHistoryItem) =>
-          Number(b.attributes.order) - Number(a.attributes.order)
-      ),
+      data: [],
+      // data?.sort(
+      //   (a: WorkHistoryItem, b: WorkHistoryItem) =>
+      //     Number(b.attributes.order) - Number(a.attributes.order)
+      // ) ,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in

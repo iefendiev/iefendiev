@@ -26,10 +26,12 @@ const IMAGE_HEIGHT = 400
 const About: NextPage<Props> = ({ content }) => (
   <AppLayout title={<Title />}>
     <div className="flex gap-20 flex-wrap w-full items-center">
-      <article
-        className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95"
-        dangerouslySetInnerHTML={{ __html: content }}
-      />
+      {content && (
+        <article
+          className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95"
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
       <div
         className={clsx(
           "relative after:absolute before:absolute transition-all duration-700 before:content-[''] before:border-2 before:rounded-md before:border-red-500 after:content-[''] after:h-[300px] after:w-[300px] after:border-2 after:rounded-md after:border-red-500 m-auto md:m-0",
@@ -63,11 +65,11 @@ export default About
 
 export async function getStaticProps() {
   const response = await fetch(endpoints.about)
-  const { data } = await response.json()
+  // const { data } = await response.json()
 
   return {
     props: {
-      content: data ? data[0].attributes.content : [],
+      content: '',
     },
     revalidate: 3600,
   }
