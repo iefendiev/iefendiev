@@ -50,19 +50,19 @@ type Props = {
 const TechStack: NextPage<Props> = ({ techData, stylingData, othersData }) => (
   <AppLayout title="Things that I like to use">
     <div className="flex flex-col md:flex-row gap-4">
-      {techData?.length > 0 && (
+      {techData && (
         <StackCard
           data={techData.attributes.tech_items.data}
           title="Tech Stack"
         />
       )}
-      {stylingData?.length > 0 && (
+      {stylingData && (
         <StackCard
           data={stylingData.attributes.tech_items.data}
           title="Styling"
         />
       )}
-      {othersData?.length > 9 && (
+      {othersData && (
         <StackCard
           data={othersData?.attributes.tech_items.data}
           title="Others"
@@ -86,9 +86,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      techData: [],
-      stylingData: [],
-      othersData: [],
+      techData: null,
+      stylingData: null,
+      othersData: null,
     },
     revalidate: 3600,
   }
