@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 
 import AppLayout from '../layouts/app.layout'
 import endpoints from '../constants/endpoints'
+import { fetcher } from '../utils/fetcher'
 
 type ItemType = {
   id: number
@@ -75,20 +76,15 @@ const TechStack: NextPage<Props> = ({ techData, stylingData, othersData }) => (
 export default TechStack
 
 export async function getStaticProps() {
-  // const res1 = await fetch(endpoints['tech-stack'])
-  // const { data: techData } = await res1.json()
-
-  // const res2 = await fetch(endpoints['styling'])
-  // const { data: stylingData } = await res2.json()
-
-  // const res3 = await fetch(endpoints['others'])
-  // const { data: othersData } = await res3.json()
+  const { data: techData } = await fetcher(endpoints['tech-stack'])
+  const { data: stylingData } = await fetcher(endpoints['styling'])
+  const { data: othersData } = await fetcher(endpoints['others'])
 
   return {
     props: {
-      techData: null,
-      stylingData: null,
-      othersData: null,
+      techData: techData[0],
+      stylingData: stylingData[0],
+      othersData: othersData[0],
     },
     revalidate: 3600,
   }

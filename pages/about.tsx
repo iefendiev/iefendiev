@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import AppLayout from '../layouts/app.layout'
 import endpoints from '../constants/endpoints'
 import IpekPP from '../public/ipek.jpg'
+import { fetcher } from '../utils/fetcher'
 
 type Props = {
   content: string
@@ -64,12 +65,11 @@ const About: NextPage<Props> = ({ content }) => (
 export default About
 
 export async function getStaticProps() {
-  // const response = await fetch(endpoints.about)
-  // const { data } = await response.json()
+  const { data } = await fetcher(endpoints.about)
 
   return {
     props: {
-      content: '',
+      content: data ? data[0].attributes.content : [],
     },
     revalidate: 3600,
   }

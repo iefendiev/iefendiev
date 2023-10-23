@@ -20,15 +20,15 @@ const Card: React.FC<Props> = ({ item }) => {
             href={url}
             target="_blank"
             rel="noreferrer"
-            className="hover:underline hover:text-[#17CF97]"
+            className="hover:underline hover:text-blue-700"
           >
             {url}
           </a>
         </p>
       )}
-      {tags?.data.length && (
+      {(tags?.data ?? []).length > 0 && (
         <div className="flex flex-wrap items-center gap-4 mt-2">
-          {tags.data.map((tag: TagType) => (
+          {tags?.data.map((tag: TagType) => (
             <div
               key={tag.id}
               className="bg-gray-900 px-2 py-1 rounded-lg cursor-pointer"

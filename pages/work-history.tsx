@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import AppLayout from '../layouts/app.layout'
@@ -7,6 +6,7 @@ import TimeLine from '../components/TimeLine'
 import Card from '../components/Card'
 import endpoints from '../constants/endpoints'
 import { WorkHistoryItem } from '../types'
+import { fetcher } from '../utils/fetcher'
 
 type Props = {
   data: WorkHistoryItem[]
@@ -16,17 +16,8 @@ const Portfolio: NextPage<Props> = ({ data }) => {
   const isMDScreen = useMediaQuery({
     query: '(min-width: 650px)',
   })
-  const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(() => {
-    setIsLoaded(true)
-
-    return () => {
-      setIsLoaded(false)
-    }
-  }, [])
-
-  return isLoaded ? (
+  return (
     <AppLayout title="Work History / Projects">
       {isMDScreen ? (
         <TimeLine content={data} />
@@ -43,7 +34,7 @@ const Portfolio: NextPage<Props> = ({ data }) => {
         </div>
       )}
     </AppLayout>
-  ) : null
+  )
 }
 
 export default Portfolio
@@ -52,16 +43,14 @@ export default Portfolio
 // It may be called again, on a serverless function, if
 // revalidation is enabled and a new request comes in
 export async function getStaticProps() {
-  // const response = await fetch(endpoints['work-history'])
-  // const { data } = await response.json()
+  const { data } = await fetcher(endpoints['work-history'])
 
   return {
     props: {
-      data: [],
-      // data?.sort(
-      //   (a: WorkHistoryItem, b: WorkHistoryItem) =>
-      //     Number(b.attributes.order) - Number(a.attributes.order)
-      // ) ,
+      data: data?.sort(
+        (a: WorkHistoryItem, b: WorkHistoryItem) =>
+          Number(b.attributes.order) - Number(a.attributes.order)
+      ),
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
