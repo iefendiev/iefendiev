@@ -50,11 +50,11 @@ const CodeSnippet = () => {
   const fullName = 'Ipek Efendiev'
   const age = 26
   // const job = new Job('Frontend Developer', 'Izmir')
-  const hobbies = ['Reading', 'Coding', 'Drawing']
+  const hobbies = ['Coding', 'Music', 'Movies']
   const techStack = {
     frontend: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-    backend: ['Node.js', 'Express.js', 'MongoDB'],
-    others: ['Git', 'GitHub', 'Jira', 'Confluence', 'Figma'],
+    backend: ['Node.js', 'Express', 'Nest.js'],
+    others: ['Git', 'GitHub', 'Agile', 'Cypress', 'CI/CD'],
   }
 
   // const aboutMe = {
