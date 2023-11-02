@@ -6,7 +6,6 @@ import Tab from './Tab'
 
 import GitHubPNG from '../public/github.png'
 import LinkedInPNG from '../public/linkedin.png'
-import clsx from 'clsx'
 
 type SocialLinkProps = {
   href: string
@@ -41,45 +40,26 @@ const TABS = [
   },
 ]
 
-type HeaderProps = {
-  className?: string
-}
-
-const Header: React.FC<HeaderProps> = ({ className = '' }) => (
-  <div
-    className={clsx(
-      'flex items-center justify-between shadow-lg py-4 flex-wrap gap-4 md:flex-nowrap flex-col md:flex-row bg-opacity-40 bg-gray-800',
-      className
-    )}
-  >
-    <div className="flex items-center gap-4 flex-col md:flex-row">
-      {TABS.map((tab) => (
-        <Tab tab={tab} key={tab.href} />
-      ))}
-    </div>
-    <div className="flex items-center gap-3">
-      <SocialLink
-        href="https://github.com/iefendiev"
-        logo={
-          <Image
-            src={GitHubPNG}
-            alt="ipek-efendiev-github"
-            height={24}
-            width={24}
-          />
-        }
-      />
-      <SocialLink
-        href="https://www.linkedin.com/in/ipek-efendiev/"
-        logo={
-          <Image
-            src={LinkedInPNG}
-            alt="ipek-efendiev-linkedin"
-            height={24}
-            width={24}
-          />
-        }
-      />
+const Header: React.FC = () => (
+  <div className="shadow-lg py-4 bg-opacity-40 bg-gray-800">
+    <div className="flex flex-wrap md:flex-nowrap flex-col md:flex-row items-center md:justify-between gap-4 lg:max-w-5xl mx-auto px-8">
+      <div className="flex items-center gap-4 flex-col md:flex-row">
+        {TABS.map((tab) => (
+          <Tab tab={tab} key={tab.href} />
+        ))}
+      </div>
+      <div className="flex items-center gap-3">
+        <SocialLink
+          href="https://github.com/iefendiev"
+          logo={<Image src={GitHubPNG} alt="github" height={24} width={24} />}
+        />
+        <SocialLink
+          href="https://www.linkedin.com/in/ipek-efendiev/"
+          logo={
+            <Image src={LinkedInPNG} alt="linkedin" height={24} width={24} />
+          }
+        />
+      </div>
     </div>
   </div>
 )

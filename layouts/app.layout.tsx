@@ -8,10 +8,12 @@ type Props = {
 
 const AppLayout: React.FC<Props> = ({ title, children }) => (
   <div className="bg-spaceBG animate-slideBackground">
-    <Header className="px-4 lg:px-40" />
-    <div className="flex flex-col gap-6 px-8 lg:px-40 py-12 h-[calc(100vh-64px)] overflow-auto">
-      <h1 className="text-4xl text-white">{title}</h1>
-      {children}
+    <Header />
+    <div className="flex flex-col gap-6 max-w-5xl mx-auto py-12 h-[calc(100vh-64px)] overflow-auto">
+      <div className="text-4xl text-white flex justify-center px-8">
+        {title}
+      </div>
+      <div className="mx-auto px-8 w-full">{children}</div>
     </div>
   </div>
 )

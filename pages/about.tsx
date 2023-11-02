@@ -17,7 +17,7 @@ const Title = () => (
       <span className="text-primary">[</span> İpek Efendiev{' '}
       <span className="text-primary">]</span>
     </h1>
-    <p className="text-2xl">Frontend Web Developer</p>
+    <p className="text-2xl text-center">Frontend Web Developer</p>
   </div>
 )
 
@@ -26,16 +26,26 @@ const IMAGE_HEIGHT = 400
 
 const About: NextPage<Props> = ({ content }) => (
   <AppLayout title={<Title />}>
-    <div className="flex gap-20 flex-wrap w-full items-center">
+    <div className="flex flex-col gap-20 items-center">
       {content && (
-        <article
-          className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <div className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95">
+          <article
+            className="prose"
+            dangerouslySetInnerHTML={{ __html: content }}
+          />
+          <span className="prose">
+            You can contact me by my LinkedIn account or send an e-mail to
+            &nbsp;
+            <span>
+              <a href="mailto:ipekefendiev@gmail.com">ipekefendiev@gmail.com</a>
+            </span>
+          </span>
+        </div>
       )}
       <div
         className={clsx(
-          "relative after:absolute before:absolute transition-all duration-700 before:content-[''] before:border-2 before:rounded-md before:border-red-500 after:content-[''] after:h-[300px] after:w-[300px] after:border-2 after:rounded-md after:border-red-500 m-auto md:m-0",
+          'before:invisible after:invisible sm:before:visible sm:after:visible',
+          "relative after:absolute before:absolute transition-all duration-700 before:content-[''] before:border-2 before:rounded-md before:border-red-500 after:content-[''] after:h-[300px] after:w-[300px] after:border-2 after:rounded-md after:border-red-500",
           'before:w-[600px]',
           'before:h-[400px]',
           'after:w-[600px]',
@@ -47,7 +57,8 @@ const About: NextPage<Props> = ({ content }) => (
           'hover:before:top-[-20px]',
           'hover:before:left-[-20px]',
           'hover:after:top-5',
-          'hover:after:left-5'
+          'hover:after:left-5',
+          'mx-auto'
         )}
       >
         <Image
