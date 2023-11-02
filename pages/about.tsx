@@ -53,6 +53,7 @@ const About: NextPage<Props> = ({ content }) => (
           height={IMAGE_HEIGHT}
           alt="avatar-image"
           className="rounded-md z-10"
+          priority
         />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
