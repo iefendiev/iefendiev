@@ -48,7 +48,7 @@ const Apostrophe = () => <span className={constructorClassName}>&apos;</span>
 
 const CodeSnippet = () => {
   const fullName = 'Ipek Efendiev'
-  const age = 26
+  const age = new Date().getFullYear() - 1997
   // const job = new Job('Frontend Developer', 'Izmir')
   const hobbies = ['Coding', 'Music', 'Movies']
   const techStack = {
