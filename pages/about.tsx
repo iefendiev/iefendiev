@@ -6,6 +6,7 @@ import AppLayout from '../layouts/app.layout'
 import endpoints from '../constants/endpoints'
 import IpekPP from '../public/ipek.jpg'
 import { fetcher } from '../utils/fetcher'
+import CodeSnippet from '../components/CodeSnippet'
 
 type Props = {
   content: string
@@ -27,21 +28,6 @@ const IMAGE_HEIGHT = 400
 const About: NextPage<Props> = ({ content }) => (
   <AppLayout title={<Title />}>
     <div className="flex flex-col gap-20 items-center">
-      {content && (
-        <div className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95">
-          <article
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-          <span className="prose">
-            You can contact me by my LinkedIn account or send an e-mail to
-            &nbsp;
-            <span>
-              <a href="mailto:ipekefendiev@gmail.com">ipekefendiev@gmail.com</a>
-            </span>
-          </span>
-        </div>
-      )}
       <div
         className={clsx(
           'before:invisible after:invisible sm:before:visible sm:after:visible',
@@ -68,6 +54,26 @@ const About: NextPage<Props> = ({ content }) => (
           alt="avatar-image"
           className="rounded-md z-10"
         />
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <CodeSnippet />
+        {content && (
+          <div className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95">
+            <article
+              className="prose"
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+            <span className="prose">
+              You can contact me by my LinkedIn account or send an e-mail to
+              &nbsp;
+              <span>
+                <a href="mailto:ipekefendiev@gmail.com">
+                  ipekefendiev@gmail.com
+                </a>
+              </span>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   </AppLayout>

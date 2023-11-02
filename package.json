@@ -13,7 +13,8 @@
     "next": "^12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-responsive": "^9.0.0-beta.10"
+    "react-responsive": "^9.0.0-beta.10",
+    "typeit-react": "^2.6.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.4",
