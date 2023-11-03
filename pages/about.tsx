@@ -13,7 +13,7 @@ type Props = {
 }
 
 const Title = () => (
-  <div className="flex flex-col gap-8">
+  <div className="flex flex-col gap-6">
     <h1 className="text-6xl text-white">
       <span className="text-primary">[</span> İpek Efendiev{' '}
       <span className="text-primary">]</span>
@@ -56,7 +56,7 @@ const About: NextPage<Props> = ({ content }) => (
           priority
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <CodeSnippet />
         {content && (
           <div className="prose text-lg text-black pr-8 rounded-lg bg-gray-100 p-8 opacity-95">

@@ -68,7 +68,7 @@ const CodeSnippet = () => {
   // console.log(aboutMe)
 
   return (
-    <div className="bg-[#212121] rounded-lg p-4 h-[600px] sm:h-[550px] w-full">
+    <div className="bg-[#212121] rounded-lg p-4 min-h-[500px] w-full">
       <TypeIt
         options={{
           speed: 5,
